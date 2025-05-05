@@ -3,7 +3,7 @@ Berikut adalah cara konfigurasi projek ini dari segi frontend dan backend. sebel
 
 #### clone project:
 ````
-git clone github_url
+git clone git@github.com:daffasatrianegara/fullstack-react19-express.git
 ````
 setelah itu, ikuti langkah berikut untuk config dari sisi frontend dan backend:
 ### - config project frontend
