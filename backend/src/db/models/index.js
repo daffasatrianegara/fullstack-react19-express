@@ -1,7 +1,7 @@
 const CarsModels = require("./car.models")
-const usersModels = require("./users.models")
+const UsersModels = require("./users.models")
 
 module.exports = {
     CarsModels,
-    usersModels
+    UsersModels
 }

@@ -1,5 +1,5 @@
 const app = require("./server");
-const { db, port, api } = require("./config");  
+const { db, port, api } = require("./config");
 
 const startServer = async () => {
   try {

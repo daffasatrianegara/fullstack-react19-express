@@ -1,8 +1,8 @@
-const { usersModels, CarsModels } = require("./models");
+const { UsersModels, CarsModels } = require("./models");
 const { UsersSeeders, CarsSeeders } = require("./seeders");
 
 const migrateTables = async () => {
-  await usersModels.sync({ force: true });
+  await UsersModels.sync({ force: true });
   await CarsModels.sync({ force: true });
 };
 

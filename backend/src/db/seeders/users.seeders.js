@@ -1,4 +1,4 @@
-const { usersModels } = require("../models");
+const { UsersModels } = require("../models");
 
 const arrUsers = [
   { email: "john@gmail.com", username: "John Doe", gender: "M" },
@@ -14,16 +14,16 @@ const arrUsers = [
 ];
 
 const seedUsers = async () => {
-    try {
-        await usersModels.bulkCreate(arrUsers)
-        const response = {
-            status: "success",
-            message: "Seeded users successfully.",
-        };
-        console.log("\n", response, "\n");
-    } catch (err) {
-        console.log("Error seeding data users:", err.message);
-    }
-}
+  try {
+    await UsersModels.bulkCreate(arrUsers);
+    const response = {
+      status: "success",
+      message: "Seeded users successfully.",
+    };
+    console.log("\n", response, "\n");
+  } catch (err) {
+    console.log("Error seeding data users:", err.message);
+  }
+};
 
-module.exports = seedUsers
+module.exports = seedUsers;

@@ -17,7 +17,7 @@ module.exports = db.define("users", {
         allowNull: false
     },
     gender: {
-        type: DataTypes.ENUM("M", "L"),
+        type: DataTypes.ENUM("M", "F"),
         allowNull: false,
         defaultValue: "M"
     }
