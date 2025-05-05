@@ -1,11 +1,11 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../../config');
 
-module.exports = db.define("users", {
+module.exports = db.define('users', {
     id: {
         type: DataTypes.BIGINT,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
     },
     email: {
         type: DataTypes.STRING(50),
@@ -14,11 +14,11 @@ module.exports = db.define("users", {
     },
     username: {
         type: DataTypes.STRING(100),
-        allowNull: false
+        allowNull: false,
     },
     gender: {
-        type: DataTypes.ENUM("M", "F"),
+        type: DataTypes.ENUM('M', 'F'),
         allowNull: false,
-        defaultValue: "M"
-    }
-})
+        defaultValue: 'M',
+    },
+});

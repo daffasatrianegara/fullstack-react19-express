@@ -1,13 +1,13 @@
-const express = require("express");
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
-const { api } = require("./config");
-const router = require("./routes");
+const express = require('express');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const { api } = require('./config');
+const router = require('./routes');
 
 const app = express();
 const corsOption = {
-  origin: "*",
-  credentials: true,
+    origin: '*',
+    credentials: true,
 };
 
 app.use(express.urlencoded({ extended: false }));
