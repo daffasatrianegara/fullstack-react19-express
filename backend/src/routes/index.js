@@ -20,10 +20,10 @@ router.put('/users/:id', UsersControllers.updateUserHandler);
 router.delete('/users/:id', UsersControllers.deleteUserHandler);
 
 // car API
-router.get("/cars", CarsControllers.getAllCarsHandler)
-router.get("/cars/:id", CarsControllers.getDetailCarHandler)
-router.post("/cars", CarsControllers.addCarHandler)
-router.put("/cars/:id", CarsControllers.updateCarHandler)
-router.delete("/cars/:id", CarsControllers.deleteCarHandler)
+router.get('/cars', CarsControllers.getAllCarsHandler);
+router.get('/cars/:id', CarsControllers.getDetailCarHandler);
+router.post('/cars', CarsControllers.addCarHandler);
+router.put('/cars/:id', CarsControllers.updateCarHandler);
+router.delete('/cars/:id', CarsControllers.deleteCarHandler);
 
 module.exports = router;

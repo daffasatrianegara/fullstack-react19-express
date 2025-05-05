@@ -1,7 +1,7 @@
 const UsersControllers = require('./users.handlers');
-const CarsControllers = require("./car.handlers")
+const CarsControllers = require('./car.handlers');
 
 module.exports = {
     UsersControllers,
-    CarsControllers
+    CarsControllers,
 };

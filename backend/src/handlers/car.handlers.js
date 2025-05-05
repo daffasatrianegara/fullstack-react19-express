@@ -54,15 +54,15 @@ const getAllCarsHandler = async (req, res) => {
 const getDetailCarHandler = async (req, res) => {
     const { id } = req.params;
     try {
-        if(!id) {
+        if (!id) {
             return res.status(400).json({
                 status: 'Gagal',
                 message: 'ID mobil tidak boleh kosong...',
             });
         }
 
-        const getData = await CarsModels.findByPk(id)
-        if(!getData) {
+        const getData = await CarsModels.findByPk(id);
+        if (!getData) {
             return res.status(404).json({
                 status: 'Gagal',
                 message: 'Data mobil tidak ditemukan...',
@@ -73,7 +73,7 @@ const getDetailCarHandler = async (req, res) => {
             status: 'Berhasil',
             message: 'Data mobil berhasil didapatkan...',
             data: getData,
-        }); 
+        });
     } catch (err) {
         res.status(500).json({
             status: 'Gagal',
@@ -83,9 +83,9 @@ const getDetailCarHandler = async (req, res) => {
 };
 
 const addCarHandler = async (req, res) => {
-    const { owner_name, brand, plate_number, color } = req.body
+    const { owner_name, brand, plate_number, color } = req.body;
     try {
-        if(!owner_name || !brand || !plate_number || !color) {
+        if (!owner_name || !brand || !plate_number || !color) {
             return res.status(400).json({
                 status: 'Gagal',
                 message: 'Semua field harus diisi...',
@@ -94,11 +94,11 @@ const addCarHandler = async (req, res) => {
 
         const isPlateNumberExist = await CarsModels.findOne({
             where: {
-                plate_number
-            }
-        })
+                plate_number,
+            },
+        });
 
-        if(isPlateNumberExist) {
+        if (isPlateNumberExist) {
             return res.status(409).json({
                 status: 'Gagal',
                 message: 'Nomor plat sudah terdaftar...',
@@ -109,8 +109,8 @@ const addCarHandler = async (req, res) => {
             owner_name,
             brand,
             plate_number,
-            color
-        })
+            color,
+        });
 
         res.status(201).json({
             status: 'Berhasil',
@@ -123,44 +123,47 @@ const addCarHandler = async (req, res) => {
             message: err.message,
         });
     }
-}
+};
 
 const updateCarHandler = async (req, res) => {
-    const { id } = req.params
-    const { owner_name, brand, plate_number, color } = req.body
+    const { id } = req.params;
+    const { owner_name, brand, plate_number, color } = req.body;
     try {
-        if(!id || !owner_name || !brand || !plate_number || !color) {
+        if (!id || !owner_name || !brand || !plate_number || !color) {
             return res.status(400).json({
                 status: 'Gagal',
                 message: 'Semua field harus diisi...',
             });
         }
 
-        const isCarExist = await CarsModels.findByPk(id)
-        if(!isCarExist) {
+        const isCarExist = await CarsModels.findByPk(id);
+        if (!isCarExist) {
             return res.status(404).json({
                 status: 'Gagal',
                 message: 'Data mobil tidak ditemukan...',
             });
         }
 
-        if(isCarExist.plate_number === plate_number && isCarExist.id !== id) {
+        if (isCarExist.plate_number === plate_number && isCarExist.id !== id) {
             return res.status(409).json({
                 status: 'Gagal',
                 message: 'Nomor plat sudah terdaftar...',
             });
         }
 
-        await CarsModels.update({
-            owner_name,
-            brand,
-            plate_number,
-            color
-        }, {
-            where: {
-                id
-            }
-        })
+        await CarsModels.update(
+            {
+                owner_name,
+                brand,
+                plate_number,
+                color,
+            },
+            {
+                where: {
+                    id,
+                },
+            },
+        );
 
         res.status(200).json({
             status: 'Berhasil',
@@ -172,20 +175,20 @@ const updateCarHandler = async (req, res) => {
             message: err.message,
         });
     }
-}
+};
 
 const deleteCarHandler = async (req, res) => {
-    const { id } = req.params
+    const { id } = req.params;
     try {
-        if(!id) {
+        if (!id) {
             return res.status(400).json({
                 status: 'Gagal',
                 message: 'ID mobil tidak boleh kosong...',
             });
         }
 
-        const isCarExist = await CarsModels.findByPk(id)
-        if(!isCarExist) {
+        const isCarExist = await CarsModels.findByPk(id);
+        if (!isCarExist) {
             return res.status(404).json({
                 status: 'Gagal',
                 message: 'Data mobil tidak ditemukan...',
@@ -193,26 +196,25 @@ const deleteCarHandler = async (req, res) => {
         }
 
         await CarsModels.destroy({
-            where: { id }
-        })
+            where: { id },
+        });
 
         res.status(200).json({
             status: 'Berhasil',
             message: 'Data mobil berhasil dihapus...',
-        }); 
+        });
     } catch (err) {
         res.status(500).json({
             status: 'Gagal',
             message: err.message,
         });
     }
-}
+};
 
 module.exports = {
     getAllCarsHandler,
     getDetailCarHandler,
     addCarHandler,
     updateCarHandler,
-    deleteCarHandler
+    deleteCarHandler,
 };
-
