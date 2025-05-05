@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const { UsersControllers } = require('../handlers');
+const { CarsControllers } = require('../handlers');
 
 const router = Router();
 
@@ -17,6 +18,12 @@ router.get('/users/:id', UsersControllers.getDetailUserHandler);
 router.post('/users', UsersControllers.addUserHandler);
 router.put('/users/:id', UsersControllers.updateUserHandler);
 router.delete('/users/:id', UsersControllers.deleteUserHandler);
+
 // car API
+router.get("/cars", CarsControllers.getAllCarsHandler)
+router.get("/cars/:id", CarsControllers.getDetailCarHandler)
+router.post("/cars", CarsControllers.addCarHandler)
+router.put("/cars/:id", CarsControllers.updateCarHandler)
+router.delete("/cars/:id", CarsControllers.deleteCarHandler)
 
 module.exports = router;
