@@ -71,8 +71,8 @@ const updateCars = async (
 
 const deleteCars = async (id: number) => {
     try {
-        const response = await instance.delete(`/cars/${id}`)
-        return response.data
+        const response = await instance.delete(`/cars/${id}`);
+        return response.data;
     } catch (err: any) {
         throw new Error(
             err.response?.data.message ||
