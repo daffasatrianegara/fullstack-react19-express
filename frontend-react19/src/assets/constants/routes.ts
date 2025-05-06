@@ -1,15 +1,15 @@
-import { Home, User2, CarIcon } from 'lucide-react';
+import { LayoutDashboard, UserCircleIcon, CarIcon, FileLineChartIcon, LucideBanknoteArrowDown, LucideBarChart2, UserLockIcon } from 'lucide-react';
 
 export const routes = [
     {
-        title: 'beranda',
+        title: 'dashboard',
         url: '/',
-        icon: Home,
+        icon: LayoutDashboard,
     },
     {
-        title: 'pengguna',
+        title: 'pelanggan',
         url: '/users',
-        icon: User2,
+        icon: UserCircleIcon,
     },
     {
         title: 'kendaraan',
@@ -17,3 +17,26 @@ export const routes = [
         icon: CarIcon,
     },
 ];
+
+export const routesOthers = [
+    {
+        title: "Keuangan",
+        url: "/finance",
+        icon: LucideBanknoteArrowDown,
+    },
+    {
+        title: "Peminjaman Inventaris",
+        url: "/loans",
+        icon: FileLineChartIcon
+    },
+    {
+        title: "Penjualan",
+        url: "/sales",
+        icon: LucideBarChart2
+    }, 
+    {
+        title: "Karyawan",
+        url: "/employees",
+        icon: UserLockIcon
+    }
+]

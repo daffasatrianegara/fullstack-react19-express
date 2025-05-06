@@ -1,19 +1,30 @@
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/app.sidebar';
-import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 const MainLayout = ({
     children,
     title,
-}: Readonly<{ children: React.ReactNode; title: string }>) => {
+    namePage,
+}: Readonly<{
+    children: React.ReactNode;
+    title: string;
+    namePage: string;
+}>) => {
+    useEffect(() => {
+        document.title = `${title} | Cartify`;
+    }, [title])
+
     return (
         <SidebarProvider>
-            <Helmet>
-                <title className="capitalize">{title}</title>
-            </Helmet>
             <AppSidebar />
             <main>
                 <SidebarTrigger />
-                <div className="ps-8">{children}</div>
+                <div className="ps-8">
+                    <p className="font-bold text-crayola text-3xl">
+                        {namePage}
+                    </p>
+                    <div>{children}</div>
+                </div>
             </main>
         </SidebarProvider>
     );

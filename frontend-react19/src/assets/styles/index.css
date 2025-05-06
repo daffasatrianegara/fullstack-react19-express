@@ -1,6 +1,26 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+@theme {
+    --color-br-gray: #979a9e;
+    --color-bg: #e3e1d9;
+    --color-crayola: #31363f;
+    --color-crayola-hover: #414656;
+    --color-alabaster: #f2efe5;
+    --color-sea-green: #41b06e;
+    --color-sea-green-hover: #52de8b;
+    --color-vermilion: #d24545;
+    --color-vermilion-hover: #ed5555;
+    --color-maize: #ffc94a;
+    --color-maize-hover: #ffd778;
+    --color-celadon: #1679ab;
+    --color-celadon-hover: #1b95d2;
+    --color-cornsilk: #fff9db;
+    --color-lavender: #d3daff;
+    --color-pale-lavender: #e3d8ff;
+    --color-nyanza: #ddfcd1;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -140,5 +160,11 @@
         --sidebar-accent-foreground: 240 4.8% 95.9%;
         --sidebar-border: 240 3.7% 15.9%;
         --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+}
+
+@layer base {
+    html {
+        font-family: Arial, sans-serif;
     }
 }
