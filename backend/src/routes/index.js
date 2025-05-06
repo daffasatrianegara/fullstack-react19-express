@@ -1,5 +1,9 @@
 const { Router } = require('express');
-const { UsersControllers, CarsControllers, StatisticsControllers } = require('../handlers');
+const {
+    UsersControllers,
+    CarsControllers,
+    StatisticsControllers,
+} = require('../handlers');
 
 const router = Router();
 
@@ -26,9 +30,21 @@ router.put('/cars/:id', CarsControllers.updateCarHandler);
 router.delete('/cars/:id', CarsControllers.deleteCarHandler);
 
 // statistics API
-router.get("/statistics/card-info", StatisticsControllers.getDataForCardHandler)
-router.get("/statistics/users-cars", StatisticsControllers.getDataForBarChartHandler)
-router.get("/statistics/gender", StatisticsControllers.getDataForPieChartUsersHandler)
-router.get("/statistics/car-brand", StatisticsControllers.getDataForPieChartCarsHandler)
+router.get(
+    '/statistics/card-info',
+    StatisticsControllers.getDataForCardHandler,
+);
+router.get(
+    '/statistics/users-cars',
+    StatisticsControllers.getDataForBarChartHandler,
+);
+router.get(
+    '/statistics/gender',
+    StatisticsControllers.getDataForPieChartUsersHandler,
+);
+router.get(
+    '/statistics/car-brand',
+    StatisticsControllers.getDataForPieChartCarsHandler,
+);
 
 module.exports = router;

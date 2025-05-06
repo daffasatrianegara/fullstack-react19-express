@@ -2,27 +2,35 @@ const { db } = require('../config');
 
 const getDataForCardHandler = async (req, res) => {
     try {
-        const [result1, metadata1] = await db.query(`SELECT count(id) AS total_users FROM users`)
-        const [result2, metadata2] = await db.query(`SELECT count(id) AS total_cars FROM cars`)
-        const [result3, metadata3] = await db.query(`SELECT count(id) AS total_new_users FROM users WHERE DATE("createdAt") = CURRENT_DATE`)
-        const [result4, metadata4] = await db.query(`SELECT count(id) AS total_new_cars FROM cars WHERE DATE("createdAt") = CURRENT_DATE`)
-        if(!result1[0] || !result2[0] || !result3[0] || !result4[0]) {
+        const [result1, metadata1] = await db.query(
+            `SELECT count(id) AS total_users FROM users`,
+        );
+        const [result2, metadata2] = await db.query(
+            `SELECT count(id) AS total_cars FROM cars`,
+        );
+        const [result3, metadata3] = await db.query(
+            `SELECT count(id) AS total_new_users FROM users WHERE DATE("createdAt") = CURRENT_DATE`,
+        );
+        const [result4, metadata4] = await db.query(
+            `SELECT count(id) AS total_new_cars FROM cars WHERE DATE("createdAt") = CURRENT_DATE`,
+        );
+        if (!result1[0] || !result2[0] || !result3[0] || !result4[0]) {
             return res.status(404).json({
-                status: "Gagal",
-                message: "Terdapat data yang tidak ditemukan..."
-            })
+                status: 'Gagal',
+                message: 'Terdapat data yang tidak ditemukan...',
+            });
         }
 
         res.status(200).json({
-            status: "Berhasil",
-            message: "Data informasi berhasil didapatkan...",
+            status: 'Berhasil',
+            message: 'Data informasi berhasil didapatkan...',
             data: {
                 total_users: result1[0].total_users,
                 total_cars: result2[0].total_cars,
                 total_new_users: result3[0].total_new_users,
-                total_new_cars: result4[0].total_new_cars
-            }
-        })
+                total_new_cars: result4[0].total_new_cars,
+            },
+        });
     } catch (err) {
         res.status(500).json({
             status: 'Gagal',
