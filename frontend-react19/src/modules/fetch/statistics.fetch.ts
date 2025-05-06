@@ -38,8 +38,8 @@ const getDataPieChartGender = async () => {
 
 const getDataPieChartCarBrand = async () => {
     try {
-        const response = await instance.get("/statistics/car-brand")
-        return response.data
+        const response = await instance.get('/statistics/car-brand');
+        return response.data;
     } catch (err: any) {
         throw new Error(
             err.response?.data.message ||
@@ -48,4 +48,9 @@ const getDataPieChartCarBrand = async () => {
     }
 };
 
-export { getCardInfoContent, getDataBarChart, getDataPieChartGender, getDataPieChartCarBrand };
+export {
+    getCardInfoContent,
+    getDataBarChart,
+    getDataPieChartGender,
+    getDataPieChartCarBrand,
+};
