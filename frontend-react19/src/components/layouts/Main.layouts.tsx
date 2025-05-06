@@ -20,7 +20,7 @@ const MainLayout = ({
             <main>
                 <SidebarTrigger />
                 <div className="ps-8">
-                    <p className="font-bold text-crayola text-3xl">
+                    <p className="font-bold text-crayola text-3xl mb-5">
                         {namePage}
                     </p>
                     <div>{children}</div>

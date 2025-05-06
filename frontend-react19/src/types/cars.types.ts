@@ -9,3 +9,10 @@ export type carsParams = {
     plate_number: string;
     color: string;
 };
+
+export type carsType = {
+    id: number
+    owner_name: string
+    brand: string
+    
+}
