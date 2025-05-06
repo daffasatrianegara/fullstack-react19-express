@@ -12,7 +12,7 @@ const MainLayout = ({
 }>) => {
     useEffect(() => {
         document.title = `${title} | Cartify`;
-    }, [title])
+    }, [title]);
 
     return (
         <SidebarProvider>
