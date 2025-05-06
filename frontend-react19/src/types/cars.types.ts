@@ -11,8 +11,7 @@ export type carsParams = {
 };
 
 export type carsType = {
-    id: number
-    owner_name: string
-    brand: string
-    
-}
+    id: number;
+    owner_name: string;
+    brand: string;
+};

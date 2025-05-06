@@ -30,30 +30,39 @@ const AppCard = () => {
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <div className='w-full flex flex-wrap gap-4'>
+                <div className="w-full flex flex-wrap gap-4">
                     <CardInfoComponents
-                        icons={<LucideUsers className='text-crayola' size={15} />}
+                        icons={
+                            <LucideUsers className="text-crayola" size={15} />
+                        }
                         title="total pengguna"
                         value={cardData?.total_users}
-                        text='Pengguna'
+                        text="Pengguna"
                     />
                     <CardInfoComponents
-                        icons={<CarFrontIcon className='text-crayola' size={15} />}
+                        icons={
+                            <CarFrontIcon className="text-crayola" size={15} />
+                        }
                         title="total mobil"
                         value={cardData?.total_cars}
-                        text='Mobil'
+                        text="Mobil"
                     />
                     <CardInfoComponents
-                        icons={<UserPlus className='text-crayola' size={15} />}
+                        icons={<UserPlus className="text-crayola" size={15} />}
                         title="pengguna terbaru"
                         value={cardData?.total_new_users}
-                        text='Pengguna'
+                        text="Pengguna"
                     />
                     <CardInfoComponents
-                        icons={<LucideMapPinPlus className='text-crayola' size={15} />}
+                        icons={
+                            <LucideMapPinPlus
+                                className="text-crayola"
+                                size={15}
+                            />
+                        }
                         title="mobil terbaru"
                         value={cardData?.total_new_cars}
-                        text='Mobil'
+                        text="Mobil"
                     />
                 </div>
             )}

@@ -2,12 +2,12 @@ const CardInfoComponents = ({
     icons,
     title,
     value,
-    text
+    text,
 }: Readonly<{
     icons: React.ReactNode;
     title: string;
     value: string | any;
-    text: string
+    text: string;
 }>) => {
     return (
         <div className="w-fit h-fit px-5 py-3 bg-green-100 rounded-lg">
@@ -15,7 +15,9 @@ const CardInfoComponents = ({
                 {icons}
                 <p className="text-crayola text-sm capitalize">{title}</p>
             </div>
-            <p className="mt-1 text-xl font-semibold">{value} {text}</p>
+            <p className="mt-1 text-xl font-semibold">
+                {value} {text}
+            </p>
         </div>
     );
 };
