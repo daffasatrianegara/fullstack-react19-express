@@ -23,8 +23,6 @@ const AppCard = () => {
         fetchData();
     }, []);
 
-    console.log(cardData);
-
     return (
         <div>
             {loading ? (

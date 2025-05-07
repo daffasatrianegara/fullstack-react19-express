@@ -17,13 +17,13 @@ const MainLayout = ({
     return (
         <SidebarProvider>
             <AppSidebar />
-            <main>
+            <main className='w-full mb-8'>
                 <SidebarTrigger />
-                <div className="ps-8">
+                <div className="px-8">
                     <p className="font-bold text-crayola text-3xl mb-5">
                         {namePage}
                     </p>
-                    <div>{children}</div>
+                    <div className='w-full'>{children}</div>
                 </div>
             </main>
         </SidebarProvider>
