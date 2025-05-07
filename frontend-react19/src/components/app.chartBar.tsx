@@ -23,7 +23,7 @@ const ChartBar = ({ data }: Readonly<{ data: statisticsBarChart[] }>) => {
             <p className="mb-3 font-semibold text-crayola text-xl capitalize">
                 Pertumbuhan Pengguna dan Kendaraan terbaru
             </p>
-            <ResponsiveContainer className={"pb-6"} width="100%" height="100%">
+            <ResponsiveContainer className={'pb-6'} width="100%" height="100%">
                 <BarChart
                     width={500}
                     height={300}
@@ -42,12 +42,16 @@ const ChartBar = ({ data }: Readonly<{ data: statisticsBarChart[] }>) => {
                     <Bar
                         dataKey="users"
                         fill="#125427"
-                        activeBar={<Rectangle fill="#1b7b39" stroke="#1b7b39" />}
+                        activeBar={
+                            <Rectangle fill="#1b7b39" stroke="#1b7b39" />
+                        }
                     />
                     <Bar
                         dataKey="cars"
                         fill="#1DC355"
-                        activeBar={<Rectangle fill="#22e162" stroke="#22e162" />}
+                        activeBar={
+                            <Rectangle fill="#22e162" stroke="#22e162" />
+                        }
                     />
                 </BarChart>
             </ResponsiveContainer>

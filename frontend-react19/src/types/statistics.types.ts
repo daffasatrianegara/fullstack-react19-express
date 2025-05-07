@@ -6,17 +6,17 @@ export type statisticsType = {
 };
 
 export type statisticsBarChart = {
-    date: string
-    users: string
-    cars: string
-}
+    date: string;
+    users: string;
+    cars: string;
+};
 
 export type statisticsPieChartGender = {
-    male_data: string
-    female_data: string
-}
+    male_data: string;
+    female_data: string;
+};
 
 export type statisticsPieChartBrand = {
-    brand: string
-    count: string
-}
+    brand: string;
+    count: string;
+};
