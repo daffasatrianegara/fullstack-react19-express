@@ -1,11 +1,7 @@
-import { usersParams } from "@/types/users.types"
+import { usersParams } from '@/types/users.types';
 
 const TableUsers = ({ usersData }: Readonly<{ usersData: usersParams[] }>) => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+    return <div></div>;
+};
 
-export default TableUsers
+export default TableUsers;

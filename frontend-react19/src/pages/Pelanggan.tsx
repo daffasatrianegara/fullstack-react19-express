@@ -104,7 +104,11 @@ const Pelanggan = () => {
                             onChange={(e) => setSearch(e.target.value)}
                         />
                     </div>
-                    <input className='bg-sea-green hover:bg-sea-green-hover cursor-pointer text-white font-semibold px-5 rounded' type="submit" onClick={fetchData} />
+                    <input
+                        className="bg-sea-green hover:bg-sea-green-hover cursor-pointer text-white font-semibold px-5 rounded"
+                        type="submit"
+                        onClick={fetchData}
+                    />
                 </div>
             </div>
         </MainLayout>
