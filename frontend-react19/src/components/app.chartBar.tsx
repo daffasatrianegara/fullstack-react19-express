@@ -14,14 +14,14 @@ import {
 const ChartBar = ({ data }: Readonly<{ data: statisticsBarChart[] }>) => {
     const parsedData = data.map((item) => ({
         ...item,
-        users: Number(item.users),
+        customers: Number(item.users),
         cars: Number(item.cars),
     }));
 
     return (
         <div className="w-[100%] h-[58vh] border-1 border-gray-400 p-6 rounded-lg">
             <p className="mb-3 font-semibold text-crayola text-lg md:text-xl capitalize">
-                Pertumbuhan Pengguna dan Kendaraan terbaru
+                Pertumbuhan Pelanggan dan Kendaraan terbaru
             </p>
             <ResponsiveContainer
                 className={'pb-15 md:pb-6'}
@@ -44,7 +44,7 @@ const ChartBar = ({ data }: Readonly<{ data: statisticsBarChart[] }>) => {
                     <Tooltip />
                     <Legend />
                     <Bar
-                        dataKey="users"
+                        dataKey="customers"
                         fill="#125427"
                         activeBar={
                             <Rectangle fill="#1b7b39" stroke="#1b7b39" />

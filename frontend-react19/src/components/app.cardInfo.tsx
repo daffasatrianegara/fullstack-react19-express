@@ -33,9 +33,9 @@ const AppCard = () => {
                         icons={
                             <LucideUsers className="text-crayola" size={15} />
                         }
-                        title="total pengguna"
+                        title="total pelanggan"
                         value={cardData?.total_users}
-                        text="Pengguna"
+                        text="Pelanggan"
                     />
                     <CardInfoComponents
                         icons={
@@ -47,9 +47,9 @@ const AppCard = () => {
                     />
                     <CardInfoComponents
                         icons={<UserPlus className="text-crayola" size={15} />}
-                        title="pengguna terbaru"
+                        title="pelanggan terbaru"
                         value={cardData?.total_new_users}
-                        text="Pengguna"
+                        text="Pelanggan"
                     />
                     <CardInfoComponents
                         icons={

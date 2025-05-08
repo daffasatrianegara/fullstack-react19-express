@@ -11,7 +11,7 @@ import {
     ResponsiveContainer,
 } from 'recharts';
 
-const COLORS = ['#0088FE', '#FFBB28'];
+const COLORS = ['#0088FE', '#FFBB28', '#FF8042', '#00C49F', '#22e162'];
 
 const ChartPie = ({
     dataGender,
@@ -78,7 +78,7 @@ const ChartPie = ({
                             dataKey="value"
                             label
                         >
-                            {parsedDataGender.map((_, index) => (
+                            {parsedDataBrand.map((_, index) => (
                                 <Cell
                                     key={`cell-${index}`}
                                     fill={COLORS[index % COLORS.length]}

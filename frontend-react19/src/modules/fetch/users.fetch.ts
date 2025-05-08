@@ -1,10 +1,10 @@
 import { instance } from '../axios';
 import { usersGetQuery, usersParams } from '@/types/users.types';
 
-const getDataUsers = async ({ keywords, sort }: usersGetQuery) => {
+const getDataUsers = async ({ keywords, sort, gender }: usersGetQuery) => {
     try {
         const response = await instance.get(
-            `/users?keywords=${keywords}&sort=${sort}`,
+            `/users?keywords=${keywords}&sort=${sort}&gender=${gender}`,
         );
         return response.data;
     } catch (err: any) {
