@@ -2,35 +2,41 @@ const { UsersModels } = require('../db/models');
 const { db } = require('../config');
 
 const getAllUsersHandler = async (req, res) => {
-    const { keywords, sort } = req.query;
+    const { keywords, sort, gender } = req.query;
     try {
         let query = `
         SELECT id, email, username, gender FROM users
         `;
 
-        console.log(keywords);
+        const conditions = [];
+        const replacements = {};
+
         if (keywords) {
-            query += `
-            WHERE username LIKE :keywords OR email LIKE :keywords
-            `;
+            conditions.push(
+                `(username LIKE :keywords OR email LIKE :keywords)`,
+            );
+            replacements.keywords = `%${keywords}%`;
+        }
+
+        if (gender && (gender === 'M' || gender === 'F')) {
+            conditions.push(`gender = :gender`);
+            replacements.gender = gender;
+        }
+
+        if (conditions.length > 0) {
+            query += `WHERE ${conditions.join(' AND ')}\n`;
         }
 
         if (sort === 'asc') {
-            query += `
-            ORDER BY "createdAt" ASC
-            `;
+            query += `ORDER BY "createdAt" ASC`;
         } else if (sort === 'desc') {
-            query += `
-            ORDER BY "createdAt" DESC
-            `;
+            query += `ORDER BY "createdAt" DESC`;
         } else {
-            query += `
-            ORDER BY id ASC
-            `;
+            query += `ORDER BY id ASC`;
         }
 
         const [result, metadata] = await db.query(query, {
-            replacements: { keywords: `%${keywords}%` },
+            replacements,
         });
 
         if (result.length === 0) {
