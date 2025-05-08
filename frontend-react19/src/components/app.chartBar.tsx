@@ -23,7 +23,11 @@ const ChartBar = ({ data }: Readonly<{ data: statisticsBarChart[] }>) => {
             <p className="mb-3 font-semibold text-crayola text-lg md:text-xl capitalize">
                 Pertumbuhan Pengguna dan Kendaraan terbaru
             </p>
-            <ResponsiveContainer className={'pb-15 md:pb-6'} width="100%" height="100%">
+            <ResponsiveContainer
+                className={'pb-15 md:pb-6'}
+                width="100%"
+                height="100%"
+            >
                 <BarChart
                     width={500}
                     height={300}

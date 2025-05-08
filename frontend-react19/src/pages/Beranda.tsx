@@ -52,7 +52,10 @@ function Beranda() {
             </div>
             <div className="w-full">
                 {pieChartGender ? (
-                    <ChartPie dataGender={pieChartGender} dataBrand={pieChartBrand} />
+                    <ChartPie
+                        dataGender={pieChartGender}
+                        dataBrand={pieChartBrand}
+                    />
                 ) : (
                     <p>loading...</p>
                 )}

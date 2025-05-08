@@ -28,11 +28,11 @@ const ChartPie = ({
     const parsedDataBrand = dataBrand.map((data) => {
         let brand = {
             name: data.brand,
-            value: Number(data.count)
-        }
+            value: Number(data.count),
+        };
 
-        return brand
-    })
+        return brand;
+    });
 
     return (
         <div className="w-full flex flex-wrap mt-5 md:gap-4 gap-5 justify-center">
