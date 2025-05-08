@@ -129,7 +129,7 @@ const getDataForPieChartUsersHandler = async (req, res) => {
 const getDataForPieChartCarsHandler = async (req, res) => {
     try {
         const [result, metadata] = await db.query(
-            `SELECT brand, count(id) FROM cars GROUP BY brand`,
+            `SELECT brand, count(id) FROM cars GROUP BY brand ORDER BY count(id) DESC LIMIT 5`,
         );
         if (result.length === 0) {
             return res.status(404).json({

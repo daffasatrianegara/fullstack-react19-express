@@ -20,10 +20,10 @@ const ChartBar = ({ data }: Readonly<{ data: statisticsBarChart[] }>) => {
 
     return (
         <div className="w-[100%] h-[58vh] border-1 border-gray-400 p-6 rounded-lg">
-            <p className="mb-3 font-semibold text-crayola text-xl capitalize">
+            <p className="mb-3 font-semibold text-crayola text-lg md:text-xl capitalize">
                 Pertumbuhan Pengguna dan Kendaraan terbaru
             </p>
-            <ResponsiveContainer className={'pb-6'} width="100%" height="100%">
+            <ResponsiveContainer className={'pb-15 md:pb-6'} width="100%" height="100%">
                 <BarChart
                     width={500}
                     height={300}

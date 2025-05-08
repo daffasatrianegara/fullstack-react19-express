@@ -50,14 +50,12 @@ function Beranda() {
                     </div>
                 )}
             </div>
-            <div className="w-full flex">
-                <div className="w-1/2">
-                    {pieChartGender ? (
-                        <ChartPie data={pieChartGender} />
-                    ) : (
-                        <p>loading...</p>
-                    )}
-                </div>
+            <div className="w-full">
+                {pieChartGender ? (
+                    <ChartPie dataGender={pieChartGender} dataBrand={pieChartBrand} />
+                ) : (
+                    <p>loading...</p>
+                )}
             </div>
         </MainLayout>
     );

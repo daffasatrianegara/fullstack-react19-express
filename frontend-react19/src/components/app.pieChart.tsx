@@ -1,4 +1,7 @@
-import { statisticsPieChartGender } from '@/types/statistics.types';
+import {
+    statisticsPieChartBrand,
+    statisticsPieChartGender,
+} from '@/types/statistics.types';
 import {
     PieChart,
     Pie,
@@ -10,36 +13,83 @@ import {
 
 const COLORS = ['#0088FE', '#FFBB28'];
 
-const ChartPie = ({ data }: Readonly<{ data: statisticsPieChartGender }>) => {
-    const parsedData = [
-        { name: 'Laki-laki', value: Number(data.male_data) },
-        { name: 'Perempuan', value: Number(data.female_data) },
+const ChartPie = ({
+    dataGender,
+    dataBrand,
+}: Readonly<{
+    dataGender: statisticsPieChartGender;
+    dataBrand: statisticsPieChartBrand[];
+}>) => {
+    const parsedDataGender = [
+        { name: 'Laki-laki', value: Number(dataGender.male_data) },
+        { name: 'Perempuan', value: Number(dataGender.female_data) },
     ];
 
+    const parsedDataBrand = dataBrand.map((data) => {
+        let brand = {
+            name: data.brand,
+            value: Number(data.count)
+        }
+
+        return brand
+    })
+
     return (
-        <div className="w-full h-[300px]">
-            <ResponsiveContainer>
-                <PieChart>
-                    <Pie
-                        data={parsedData}
-                        cx="50%"
-                        cy="50%"
-                        outerRadius={80}
-                        fill="#8884d8"
-                        dataKey="value"
-                        label
-                    >
-                        {parsedData.map((_, index) => (
-                            <Cell
-                                key={`cell-${index}`}
-                                fill={COLORS[index % COLORS.length]}
-                            />
-                        ))}
-                    </Pie>
-                    <Tooltip />
-                    <Legend />
-                </PieChart>
-            </ResponsiveContainer>
+        <div className="w-full flex flex-wrap mt-5 md:gap-4 gap-5 justify-center">
+            <div className="w-full md:w-[40%] h-[400px] md:h-[350px] border-1 border-gray-400 rounded-lg p-6">
+                <p className="mb-3 font-semibold text-crayola text-lg md:text-xl capitalize">
+                    Distribusi gender Pengguna
+                </p>
+                <ResponsiveContainer className={'pb-15 md:pb-6'}>
+                    <PieChart>
+                        <Pie
+                            data={parsedDataGender}
+                            cx="50%"
+                            cy="50%"
+                            outerRadius={80}
+                            fill="#8884d8"
+                            dataKey="value"
+                            label
+                        >
+                            {parsedDataGender.map((_, index) => (
+                                <Cell
+                                    key={`cell-${index}`}
+                                    fill={COLORS[index % COLORS.length]}
+                                />
+                            ))}
+                        </Pie>
+                        <Tooltip />
+                        <Legend />
+                    </PieChart>
+                </ResponsiveContainer>
+            </div>
+            <div className="w-full md:w-[55%] h-[400px] md:h-[350px] border-1 border-gray-400 rounded-lg p-6">
+                <p className="mb-3 font-semibold text-crayola text-lg md:text-xl capitalize">
+                    Distribusi Merk Kendaraan terbanyak
+                </p>
+                <ResponsiveContainer className={'pb-15 md:pb-6'}>
+                    <PieChart>
+                        <Pie
+                            data={parsedDataBrand}
+                            cx="50%"
+                            cy="50%"
+                            outerRadius={80}
+                            fill="#8884d8"
+                            dataKey="value"
+                            label
+                        >
+                            {parsedDataGender.map((_, index) => (
+                                <Cell
+                                    key={`cell-${index}`}
+                                    fill={COLORS[index % COLORS.length]}
+                                />
+                            ))}
+                        </Pie>
+                        <Tooltip />
+                        <Legend />
+                    </PieChart>
+                </ResponsiveContainer>
+            </div>
         </div>
     );
 };
