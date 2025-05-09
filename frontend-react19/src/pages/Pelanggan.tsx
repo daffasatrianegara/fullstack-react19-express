@@ -8,35 +8,48 @@ import {
     PopoverTrigger,
     PopoverContent,
 } from '@/components/ui/popover';
+import TableUsers from '@/components/app.tableUsers';
 
 const Pelanggan = () => {
     const [users, setUsers] = useState<usersParams[]>([]);
     const [tab, setTab] = useState<1 | 2 | 3>(1);
-    const [sort, setSort] = useState<'ASC' | 'DESC' | null>(null);
+    const [sort, setSort] = useState<'asc' | 'desc' | null>(null);
     const [search, setSearch] = useState<string>('');
     const [isLoading, setIsLoading] = useState<boolean>(true);
-
-    const fetchData = async () => {
-        let gender = '';
-        if (tab === 2) {
-            gender += 'M';
-        } else if (tab === 3) {
-            gender += 'F';
-        }
-
-        const result = await getDataUsers({
-            keywords: search,
-            sort: sort,
-            gender: gender,
-        });
-        setUsers(result.data);
-        setIsLoading(false);
-    };
+    const [debouncedSearch, setDebouncedSearch] = useState<string>('');
 
     useEffect(() => {
-        setIsLoading(true);
+        const handler = setTimeout(() => {
+            setDebouncedSearch(search);
+        }, 500); 
+
+        return () => {
+            clearTimeout(handler);
+        };
+    }, [search]);
+
+    
+    useEffect(() => {
+        const fetchData = async () => {
+            let gender = '';
+            if (tab === 2) {
+                gender += 'M';
+            } else if (tab === 3) {
+                gender += 'F';
+            }
+    
+            const result = await getDataUsers({
+                keywords: debouncedSearch,
+                sort: sort,
+                gender: gender,
+            });
+            setUsers(result.data);
+            setIsLoading(false);
+        };
+
+        setIsLoading(true)
         fetchData();
-    }, [tab, sort, search]);
+    }, [tab, sort, debouncedSearch]);
 
     return (
         <MainLayout title="Data Pelanggan" namePage="Data Pelanggan">
@@ -78,21 +91,27 @@ const Pelanggan = () => {
                         <PopoverContent className="w-36 p-1">
                             <div className="flex flex-col">
                                 <button
-                                    onClick={() => setSort('ASC')}
-                                    className={`text-left px-2 py-1 hover:bg-gray-100 rounded text-sm capitalize cursor-pointer ${sort === 'ASC' ? 'bg-gray-100' : ''}`}
+                                    onClick={() => setSort(null)}
+                                    className={`text-left px-2 py-1 hover:bg-gray-100 rounded text-sm capitalize cursor-pointer ${sort === null ? 'bg-gray-100' : ''}`}
+                                >
+                                    Default
+                                </button>
+                                <button
+                                    onClick={() => setSort('asc')}
+                                    className={`text-left px-2 py-1 hover:bg-gray-100 rounded text-sm capitalize cursor-pointer ${sort === 'asc' ? 'bg-gray-100' : ''}`}
                                 >
                                     Data terlama
                                 </button>
                                 <button
-                                    onClick={() => setSort('DESC')}
-                                    className={`text-left px-2 py-1 hover:bg-gray-100 rounded text-sm capitalize cursor-pointer ${sort === 'DESC' ? 'bg-gray-100' : ''}`}
+                                    onClick={() => setSort('desc')}
+                                    className={`text-left px-2 py-1 hover:bg-gray-100 rounded text-sm capitalize cursor-pointer ${sort === 'desc' ? 'bg-gray-100' : ''}`}
                                 >
                                     Data Terbaru
                                 </button>
                             </div>
                         </PopoverContent>
                     </Popover>
-                    <div className="relative w-[60%]">
+                    <div className="relative w-[70%]">
                         <Search
                             size={15}
                             className="absolute top-1/2 -translate-y-1/2 left-2"
@@ -104,11 +123,17 @@ const Pelanggan = () => {
                             onChange={(e) => setSearch(e.target.value)}
                         />
                     </div>
-                    <input
-                        className="bg-sea-green hover:bg-sea-green-hover cursor-pointer text-white font-semibold px-5 rounded"
-                        type="submit"
-                        onClick={fetchData}
-                    />
+                </div>
+                <div className='mt-5'>
+                    {users && isLoading === false ? (
+                        <div>
+                            <TableUsers usersData={users} />
+                        </div>
+                    ) : (
+                        <div>
+                            <p>Loading...</p>
+                        </div>
+                    )}
                 </div>
             </div>
         </MainLayout>
