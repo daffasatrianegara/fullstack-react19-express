@@ -59,7 +59,7 @@ const UpsertDialogUsers = ({
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>
-                        {method === 'add' ? 'Tambah' : 'Perbarui'} Pengguna
+                        {method === 'add' ? 'Tambah' : 'Perbarui'} Data Pelanggan
                     </DialogTitle>
                 </DialogHeader>
                 <form onSubmit={handleUpsertData} className="space-y-3">
