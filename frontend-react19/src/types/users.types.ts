@@ -10,4 +10,3 @@ export type usersParams = {
     email: string;
     gender: 'M' | 'F';
 };
-

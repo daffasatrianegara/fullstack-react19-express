@@ -21,14 +21,13 @@ const Pelanggan = () => {
     useEffect(() => {
         const handler = setTimeout(() => {
             setDebouncedSearch(search);
-        }, 500); 
+        }, 500);
 
         return () => {
             clearTimeout(handler);
         };
     }, [search]);
 
-    
     useEffect(() => {
         const fetchData = async () => {
             let gender = '';
@@ -37,7 +36,7 @@ const Pelanggan = () => {
             } else if (tab === 3) {
                 gender += 'F';
             }
-    
+
             const result = await getDataUsers({
                 keywords: debouncedSearch,
                 sort: sort,
@@ -47,7 +46,7 @@ const Pelanggan = () => {
             setIsLoading(false);
         };
 
-        setIsLoading(true)
+        setIsLoading(true);
         fetchData();
     }, [tab, sort, debouncedSearch]);
 
@@ -124,7 +123,7 @@ const Pelanggan = () => {
                         />
                     </div>
                 </div>
-                <div className='mt-5'>
+                <div className="mt-5">
                     {users && isLoading === false ? (
                         <div>
                             <TableUsers usersData={users} />
