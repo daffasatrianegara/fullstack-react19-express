@@ -59,7 +59,8 @@ const UpsertDialogUsers = ({
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>
-                        {method === 'add' ? 'Tambah' : 'Perbarui'} Data Pelanggan
+                        {method === 'add' ? 'Tambah' : 'Perbarui'} Data
+                        Pelanggan
                     </DialogTitle>
                 </DialogHeader>
                 <form onSubmit={handleUpsertData} className="space-y-3">
@@ -91,7 +92,9 @@ const UpsertDialogUsers = ({
                         <option value="F">Wanita</option>
                     </select>
                     <DialogFooter>
-                        <Button className='cursor-pointer' type="submit">Simpan</Button>
+                        <Button className="cursor-pointer" type="submit">
+                            Simpan
+                        </Button>
                     </DialogFooter>
                 </form>
             </DialogContent>

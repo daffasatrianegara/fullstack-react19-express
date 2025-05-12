@@ -53,7 +53,7 @@ const UpsertDialogCars = ({
     const handleUpsertData = async (e: React.FormEvent) => {
         e.preventDefault();
         if (method === 'add') {
-            await addCars(formData)
+            await addCars(formData);
         } else if (method === 'update' && formData.id) {
             await updateCars(Number(formData.id), formData);
         }

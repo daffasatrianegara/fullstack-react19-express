@@ -125,4 +125,4 @@ const TableCars = ({ carsData }: Readonly<{ carsData: carsParams[] }>) => {
     );
 };
 
-export default TableCars
+export default TableCars;
