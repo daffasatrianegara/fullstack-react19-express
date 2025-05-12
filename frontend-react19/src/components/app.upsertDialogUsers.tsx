@@ -66,7 +66,7 @@ const UpsertDialogUsers = ({
                     <input
                         name="email"
                         type="email"
-                        placeholder="Email"
+                        placeholder="Masukkan Email Anda..."
                         value={formData.email}
                         onChange={handleChange}
                         className="w-full border rounded p-2"
@@ -75,7 +75,7 @@ const UpsertDialogUsers = ({
                     <input
                         name="username"
                         type="text"
-                        placeholder="Username"
+                        placeholder="Masukkan Nama Anda..."
                         value={formData.username}
                         onChange={handleChange}
                         className="w-full border rounded p-2"
@@ -91,7 +91,7 @@ const UpsertDialogUsers = ({
                         <option value="F">Wanita</option>
                     </select>
                     <DialogFooter>
-                        <Button type="submit">Simpan</Button>
+                        <Button className='cursor-pointer' type="submit">Simpan</Button>
                     </DialogFooter>
                 </form>
             </DialogContent>

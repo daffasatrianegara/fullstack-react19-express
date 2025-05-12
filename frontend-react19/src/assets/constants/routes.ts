@@ -16,12 +16,12 @@ export const routes = [
     },
     {
         title: 'pelanggan',
-        url: '/users',
+        url: '/pelanggan',
         icon: UserCircleIcon,
     },
     {
         title: 'kendaraan',
-        url: '/vehicles',
+        url: '/kendaraan',
         icon: CarIcon,
     },
 ];

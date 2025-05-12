@@ -4,6 +4,7 @@ export type carsGetQuery = {
 };
 
 export type carsParams = {
+    id: string
     owner_name: string;
     brand: string;
     plate_number: string;
